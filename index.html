@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epitaxy of Photonic Structures Laboratory | WUST</title>
+    <!-- Nowoczesne fonty z Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* --- Zmienne kolorystyczne (Dark Tech & Lasers) --- */
+        :root {
+            --bg-color: #0b0c10;
+            --surface-color: #1a1c23;
+            --text-main: #c5c6c7;
+            --text-light: #ffffff;
+            --laser-cyan: #66fcf1;
+            --laser-cyan-dim: #45a29e;
+            --laser-purple: #b026ff;
+        }
+
+        /* --- Style bazowe --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; }
+        h1, h2, h3, .nav-logo { font-family: 'Rajdhani', sans-serif; color: var(--text-light); text-transform: uppercase; letter-spacing: 1px; }
+        a { color: var(--laser-cyan); text-decoration: none; transition: 0.3s; }
+        a:hover { color: var(--laser-purple); text-shadow: 0 0 8px var(--laser-purple); }
+
+        /* --- Nawigacja --- */
+        nav { position: fixed; top: 0; width: 100%; background: rgba(11, 12, 16, 0.95); padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; border-bottom: 1px solid var(--laser-cyan-dim); }
+        .nav-logo { font-size: 1.5rem; font-weight: 700; background: linear-gradient(90deg, var(--laser-cyan), var(--laser-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-links a { margin-left: 20px; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* --- Hero Section (Strona Główna) --- */
+        header { padding: 150px 20px 100px; text-align: center; background: radial-gradient(circle at center, #1a1c23 0%, #0b0c10 70%); border-bottom: 2px solid var(--laser-purple); }
+        header h1 { font-size: 3.5rem; margin-bottom: 20px; text-shadow: 0 0 15px rgba(102, 252, 241, 0.3); }
+        header p { font-size: 1.2rem; max-width: 800px; margin: 0 auto 30px; font-weight: 300; }
+        .btn { display: inline-block; padding: 12px 30px; background: transparent; border: 2px solid var(--laser-cyan); color: var(--laser-cyan); font-weight: 600; font-family: 'Rajdhani'; font-size: 1.2rem; border-radius: 4px; box-shadow: 0 0 10px rgba(102, 252, 241, 0.2); transition: 0.3s; }
+        .btn:hover { background: var(--laser-cyan); color: var(--bg-color); box-shadow: 0 0 20px rgba(102, 252, 241, 0.6); }
+
+        /* --- Sekcje (Wspólne style) --- */
+        section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+        section h2 { font-size: 2.5rem; margin-bottom: 40px; border-left: 4px solid var(--laser-purple); padding-left: 15px; }
+
+        /* --- Grid layout (Badania, Zespół, Sprzęt) --- */
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: var(--surface-color); padding: 30px; border-radius: 8px; border-top: 3px solid var(--laser-cyan-dim); transition: transform 0.3s, box-shadow 0.3s; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(102, 252, 241, 0.1); border-top-color: var(--laser-purple); }
+        .card h3 { color: var(--laser-cyan); margin-bottom: 15px; font-size: 1.5rem; }
+
+        /* --- Lista Grantów --- */
+        .grant-list { list-style: none; }
+        .grant-list li { background: var(--surface-color); margin-bottom: 15px; padding: 20px; border-left: 3px solid var(--laser-cyan); border-radius: 4px; }
+        .grant-title { font-weight: 600; color: var(--text-light); font-size: 1.1rem; }
+        .grant-meta { font-size: 0.85rem; color: var(--laser-cyan-dim); margin-top: 5px; font-family: monospace; }
+
+        /* --- Zespół --- */
+        .team-member { display: flex; flex-direction: column; background: var(--surface-color); padding: 20px; border-radius: 8px; text-align: center; }
+        .team-member h3 { color: var(--text-light); margin-bottom: 5px; }
+        .role { color: var(--laser-purple); font-weight: 600; font-size: 0.9rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* --- Stopka --- */
+        footer { text-align: center; padding: 40px 20px; background: var(--surface-color); border-top: 1px solid #333; margin-top: 50px; font-size: 0.9rem; }
+
+        /* Responsywność */
+        @media (max-width: 768px) {
+            nav { flex-direction: column; padding: 15px; }
+            .nav-links { margin-top: 15px; }
+            .nav-links a { margin-left: 10px; margin-right: 10px; }
+            header h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Pasek Nawigacji -->
+    <nav>
+        <div class="nav-logo">EPS Lab</div>
+        <div class="nav-links">
+            <a href="#research">Research</a>
+            <a href="#grants">Projects</a>
+            <a href="#facilities">Facilities</a>
+            <a href="#team">Team</a>
+        </div>
+    </nav>
+
+    <!-- Strona Główna -->
+    <header id="home">
+        <h1>Epitaxy of Photonic Structures Laboratory</h1>
+        <p>Wrocław University of Science and Technology, Faculty of Electronics, Photonics and Microsystems</p>
+        <p>Pioneering research in quantum photonics, advanced semiconductor lasers (VCSELs, cascades), and the epitaxy of highly efficient nanostructures for next-generation optoelectronics.</p>
+        <a href="#research" class="btn">Explore Our Research</a>
+    </header>
+
+    <!-- Badania / Profil -->
+    <section id="research">
+        <h2>Research Focus</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>Quantum Photonics & Emitters</h3>
+                <p>Development of deterministically fabricated, bright, and Purcell-enhanced InAs/InP quantum dots-based nonclassical photon sources for quantum communication in the C-band. We also explore integrated quantum photonics on hybrid InP/SiO2 platforms.</p>
+            </div>
+            <div class="card">
+                <h3>Advanced Semiconductor Lasers</h3>
+                <p>Pushing the boundaries of semiconductor laser technology. Our research covers broken symmetry VCSELs to increase efficiency, surface-emitting lasers with MHCG subwavelength diffraction gratings, and single-mode cascade lasers for optical gas detection.</p>
+            </div>
+            <div class="card">
+                <h3>Epitaxy & Nanofabrication</h3>
+                <p>Growth of advanced A-III-N and A-III-B-V heterostructures using MOVPE and HVPE techniques. We specialize in the complete technological process: from crystal growth and nano-lithography to advanced structural and optical characterization.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Granty / Projekty -->
+    <section id="grants">
+        <h2>Ongoing & Recent Projects</h2>
+        <ul class="grant-list">
+            <li>
+                <div class="grant-title">TSUNAMI - deterministically fabricated, scalable, bright, and Purcell-enhanced InAs/InP quantum dots-based nonclassical photon sources for quantum communication in the C-band</div>
+                <div class="grant-meta">NSC OPUS 29 (No 2025/57/B/ST7/04916) | 03.2026 - 03.2029</div>
+            </li>
+            <li>
+                <div class="grant-title">Broken symmetry VCSEL lasers: increasing efficiency and reaching new boundaries in semiconductor laser technology</div>
+                <div class="grant-meta">NSC SONATA 20 (No 2024/55/D/ST7/02732) | 10.2025 - 09.2028</div>
+            </li>
+            <li>
+                <div class="grant-title">Semiconductor surface-emitting lasers with MHCG subwavelength diffraction grating mirrors</div>
+                <div class="grant-meta">NSC SONATA BIS-13 (No. 2023/50/E/ST7/00698) | 04.2024 - 10.2027</div>
+            </li>
+            <li>
+                <div class="grant-title">Integrated quantum photonics on a hybrid InP/SiO2 platform</div>
+                <div class="grant-meta">NSC SONATA BIS-13 (No. 2023/50/E/ST7/00581) | 10.2024 - 09.2027</div>
+            </li>
+            <li>
+                <div class="grant-title">Key enabling technologies for advanced electronic and optoelectronic applications</div>
+                <div class="grant-meta">NAWA Bilateral Exchange (BPN/BSK/2021/1/00035/U/00001) | 01.2022 - 10.2023</div>
+            </li>
+            <li>
+                <div class="grant-title">Subwavelength MHCG gratings as active mirrors for a new class of quantum lasers</div>
+                <div class="grant-meta">NSC OPUS-17 (No. 2019/33/B/ST7/02591) | 02.2020 - 07.2023</div>
+            </li>
+            <li>
+                <div class="grant-title">Development of structure technology for single-mode cascade lasers for applications in optical gas detection systems</div>
+                <div class="grant-meta">NCRD TECMASTRATEG (1/347510/15/NCBR/2018) | 03.2018 - 02.2022</div>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Sprzęt / Aparatura (Skrócona do gridu) -->
+    <section id="facilities">
+        <h2>Facilities & Equipment</h2>
+        <p style="margin-bottom: 30px;">Our laboratories include 500 m² of highly controlled clean rooms (class < 10 000, with class 100 nano-lithography zones) equipped with a complete technological line.</p>
+        <div class="grid-container">
+            <div class="card">
+                <h3>Epitaxy Systems</h3>
+                <p>MOVPE (AIXTRON CCS 3x2” for A-III-N, AIX200 R&D for A-III-B-V) and HVPE reactors for complex heterostructures and thick GaN layers growth with precise n/p doping control.</p>
+            </div>
+            <div class="card">
+                <h3>Plasma & Lithography</h3>
+                <p>Oxford Instruments PlasmaLab 80plus/100 for RIE, PECVD, and ICP-PECVD. UV Photolithography (Karl Suss MA56, > 0.6 µm) and full mask fabrication capabilities.</p>
+            </div>
+            <div class="card">
+                <h3>Advanced Characterization</h3>
+                <p>AFM/STM (Veeco MultiMode), SEM (Hitachi Su6600 w/ EDX), high-frequency HEMT measurement setup (up to 20 GHz), OBIC, UV u-PL mapping, and DLTS systems.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Zespół -->
+    <section id="team">
+        <h2>Our Team</h2>
+        <div class="grid-container" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+            <div class="team-member" style="border: 2px solid var(--laser-cyan);">
+                <h3>dr inż. Beata Ściana</h3>
+                <span class="role">Head of Laboratory (PI)</span>
+            </div>
+            <div class="team-member">
+                <h3>dr inż. Damian Radziewicz</h3>
+                <span class="role">Researcher</span>
+            </div>
+            <div class="team-member">
+                <h3>dr inż. Wojciech Dawidowski</h3>
+                <span class="role">Researcher</span>
+            </div>
+            <div class="team-member">
+                <h3>dr inż. Mikołaj Badura</h3>
+                <span class="role">Researcher</span>
+            </div>
+            <div class="team-member">
+                <h3>dr inż. Adriana Łozińska</h3>
+                <span class="role">Researcher</span>
+            </div>
+            <div class="team-member">
+                <h3>mgr inż. J. Mikołaj Śmigiel</h3>
+                <span class="role">PhD Student / Researcher</span>
+            </div>
+            <div class="team-member">
+                <h3>mgr inż. Justyna Olejnik</h3>
+                <span class="role">PhD Student / Researcher</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stopka -->
+    <footer>
+        <p>&copy; 2026 Epitaxy of Photonic Structures Laboratory | Wrocław University of Science and Technology (W4)</p>
+    </footer>
+
+    <!-- Skrypt do płynnego przewijania menu -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
