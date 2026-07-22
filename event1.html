@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photonics West 2026 - Gallery | EPS Lab</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b0c10;
+            --surface-color: #1a1c23;
+            --text-main: #c5c6c7;
+            --text-light: #ffffff;
+            --laser-cyan: #66fcf1;
+            --laser-cyan-dim: #45a29e;
+            --laser-purple: #b026ff;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; }
+        h1, h2, h3, .nav-logo { font-family: 'Rajdhani', sans-serif; color: var(--text-light); text-transform: uppercase; letter-spacing: 1px; }
+        a { color: var(--laser-cyan); text-decoration: none; transition: 0.3s; }
+        a:hover { color: var(--laser-purple); text-shadow: 0 0 8px var(--laser-purple); }
+
+        /* Uproszczona Nawigacja na podstronie */
+        nav { padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; background: var(--surface-color); }
+        .nav-logo { font-size: 1.5rem; font-weight: 700; background: linear-gradient(90deg, var(--laser-cyan), var(--laser-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .back-btn { display: inline-block; padding: 8px 20px; border: 1px solid var(--laser-cyan); color: var(--laser-cyan); border-radius: 4px; font-weight: 600; font-family: 'Rajdhani'; }
+        .back-btn:hover { background: var(--laser-cyan); color: var(--bg-color); }
+
+        /* Nagłówek Galerii */
+        .gallery-header { max-width: 1200px; margin: 60px auto 40px; padding: 0 20px; text-align: center; }
+        .gallery-header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .gallery-header p { font-size: 1.1rem; color: var(--laser-cyan-dim); }
+
+        /* Siatka zdjęć w galerii */
+        .gallery-grid { max-width: 1200px; margin: 0 auto 80px; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; }
+        
+        .gallery-img { width: 100%; height: 250px; object-fit: cover; border-radius: 6px; cursor: pointer; transition: transform 0.3s, filter 0.3s; filter: brightness(0.8); border: 2px solid transparent; }
+        .gallery-img:hover { transform: scale(1.03); filter: brightness(1.1); border-color: var(--laser-cyan); z-index: 10; }
+
+        /* --- LIGHTBOX (Pełny ekran) --- */
+        .lightbox { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); justify-content: center; align-items: center; }
+        .lightbox-content { max-width: 90%; max-height: 90%; border-radius: 4px; box-shadow: 0 0 30px rgba(102, 252, 241, 0.3); }
+        .close-btn { position: absolute; top: 20px; right: 40px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .close-btn:hover { color: var(--laser-purple); }
+
+        footer { text-align: center; padding: 30px 20px; background: var(--surface-color); border-top: 1px solid #333; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-logo">EPS Lab</div>
+        <!-- Link powrotny do strony głównej do sekcji Activities -->
+        <a href="index.html#activities" class="back-btn">&larr; Back to Main Page</a>
+    </nav>
+
+    <div class="gallery-header">
+        <h1>Photonics West 2026</h1>
+        <p>June 2026 | Event Gallery</p>
+    </div>
+
+    <!-- Siatka ze zdjęciami. Podmieniaj 'gal1.jpg', 'gal2.jpg' na swoje zdjęcia -->
+    <div class="gallery-grid">
+        <img src="gal1.jpg" alt="Presentation photo" class="gallery-img" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%\' height=\'100%\'><rect fill=\'%23222\' width=\'100%\' height=\'100%\'/><text fill=\'%23555\' x=\'50%\' y=\'50%\' font-family=\'Arial\' font-size=\'20\' text-anchor=\'middle\' dominant-baseline=\'middle\'>Add Photo 1</text></svg>'">
+        <img src="gal2.jpg" alt="Team photo" class="gallery-img" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%\' height=\'100%\'><rect fill=\'%23222\' width=\'100%\' height=\'100%\'/><text fill=\'%23555\' x=\'50%\' y=\'50%\' font-family=\'Arial\' font-size=\'20\' text-anchor=\'middle\' dominant-baseline=\'middle\'>Add Photo 2</text></svg>'">
+        <img src="gal3.jpg" alt="Poster session" class="gallery-img" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%\' height=\'100%\'><rect fill=\'%23222\' width=\'100%\' height=\'100%\'/><text fill=\'%23555\' x=\'50%\' y=\'50%\' font-family=\'Arial\' font-size=\'20\' text-anchor=\'middle\' dominant-baseline=\'middle\'>Add Photo 3</text></svg>'">
+        <img src="gal4.jpg" alt="Networking" class="gallery-img" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%\' height=\'100%\'><rect fill=\'%23222\' width=\'100%\' height=\'100%\'/><text fill=\'%23555\' x=\'50%\' y=\'50%\' font-family=\'Arial\' font-size=\'20\' text-anchor=\'middle\' dominant-baseline=\'middle\'>Add Photo 4</text></svg>'">
+    </div>
+
+    <!-- Niewidzialny na starcie moduł Lightboxa -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-btn">&times;</span>
+        <img id="lightbox-img" class="lightbox-content" src="">
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Epitaxy of Photonic Structures Laboratory | WUST</p>
+    </footer>
+
+    <!-- Skrypt obsługujący powiększanie zdjęć -->
+    <script>
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const images = document.querySelectorAll('.gallery-img');
+        const closeBtn = document.querySelector('.close-btn');
+
+        // Otwieranie lightboxa po kliknięciu na obrazek
+        images.forEach(img => {
+            img.addEventListener('click', () => {
+                lightbox.style.display = 'flex';
+                lightboxImg.src = img.src; // Kopiuje źródło klikniętego zdjęcia do dużej ramki
+            });
+        });
+
+        // Zamykanie krzyżykiem
+        closeBtn.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+        });
+
+        // Zamykanie po kliknięciu w czarne tło obok zdjęcia
+        lightbox.addEventListener('click', (e) => {
+            if(e.target !== lightboxImg) {
+                lightbox.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
